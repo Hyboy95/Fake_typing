@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center;">
+<h1 >Type anything slowly</h1>
+<form>
+    <label>
+        <textarea cols="50" rows="20" id="txt" onkeydown="fake_typing()"></textarea>
+    </label>
+</form>
+</body>
+</html>
+<script>
+    let array = ["T","Ô","I",' ','L','À',' ','M','Ộ','T',' ','Đ','Ứ','A',' ','N','G','Ố','C','!'];
+    let str = "";
+    function fake_typing() {
+        let text = document.getElementById('txt').value;
+        if (text.length > 0) {
+            for (let i = 0; i < text.length; i++) {
+                str += array[i];
+                if (i === array.length) {
+                    document.getElementById("txt").value= "";
+                    str = "";
+                }
+            }
+        }
+        document.getElementById("txt").value = str;
+        str = "";
+        setTimeout("fake_typing()", 20);
+    }
+</script>
